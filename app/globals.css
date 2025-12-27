@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
+/* Design tokens */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --muted: #6b7280;
+  --accent: #10b981;
+  --glass: rgba(255,255,255,0.06);
+  --nav-height: 80px;
 }
 
+/* Theme mapping for font variables (kept for Next font usage) */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,15 +18,80 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Dark mode fallback (prefers-color-scheme) */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #f3f4f6;
+    --muted: #9ca3af;
+    --accent: #34d399;
+    --glass: rgba(255,255,255,0.04);
   }
 }
 
+/* Explicit .dark class support (for toggle) */
+:root.dark, .dark {
+  --background: #0a0a0a;
+  --foreground: #f3f4f6;
+  --muted: #9ca3af;
+  --accent: #34d399;
+  --glass: rgba(255,255,255,0.04);
+}
+
+/* Base styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color .18s ease, color .18s ease;
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+}
+
+/* Responsive container used across pages */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* Avatar helper */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  object-fit: cover;
+  display: inline-block;
+}
+
+/* Skeleton loading shimmer */
+.skeleton {
+  background: linear-gradient(90deg, rgba(0,0,0,0.04) 25%, rgba(0,0,0,0.06) 37%, rgba(0,0,0,0.04) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: .375rem;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Utility: glass panel */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  backdrop-filter: blur(6px);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+  padding: .25rem;
+  border-radius: .5rem;
 }

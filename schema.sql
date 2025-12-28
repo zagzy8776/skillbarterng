@@ -1,0 +1,22 @@
+CREATE TABLE public.resources (
+  id uuid DEFAULT gen_random_uuid() NOT NULL,
+  title text NOT NULL,
+  description text,
+  price numeric DEFAULT 0 NOT NULL,
+  category text,
+  subject text,
+  level text,
+  format text,
+  download_url text,
+  preview_url text,
+  tags text[],
+  seller_id uuid,
+  seller_name text,
+  university text,
+  rating numeric DEFAULT 0,
+  review_count integer DEFAULT 0,
+  downloads integer DEFAULT 0,
+  created_at timestamp with time zone DEFAULT now() NOT NULL,
+  is_active boolean DEFAULT true,
+  CONSTRAINT resources_pkey PRIMARY KEY (id)
+);

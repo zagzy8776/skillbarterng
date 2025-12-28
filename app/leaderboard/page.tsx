@@ -65,18 +65,18 @@ export default function Leaderboard() {
             <p className="text-gray-300 text-center text-xl">No one on the leaderboard yet. Start earning points!</p>
           ) : (
             <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20 shadow-xl">
-              <div className="grid grid-cols-3 md:grid-cols-4 gap-4 pb-4 border-b border-gray-600 text-gray-300 font-bold text-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pb-4 border-b border-gray-600 text-gray-300 font-bold text-sm sm:text-base lg:text-lg">
                 <p>Rank</p>
                 <p>Name</p>
-                <p className="hidden md:block">University</p>
-                <p>Points</p>
+                <p className="text-center sm:text-left">University</p>
+                <p className="text-center sm:text-right">Points</p>
               </div>
               {leaderboard.map((user, index) => (
-                <div key={user.id} className="grid grid-cols-3 md:grid-cols-4 gap-4 py-4 border-b border-gray-700 last:border-b-0 text-white items-center">
-                  <p className="text-xl font-bold text-green-300">#{index + 1}</p>
-                  <p className="text-lg">{user.full_name || "Anonymous"}</p>
-                  <p className="text-md text-gray-400 hidden md:block">{user.university || "N/A"}</p>
-                  <p className="text-lg font-semibold">{user.points}</p>
+                <div key={user.id} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 py-4 border-b border-gray-700 last:border-b-0 text-white items-center">
+                  <p className="text-lg sm:text-xl font-bold text-green-300">#{index + 1}</p>
+                  <p className="text-base sm:text-lg">{user.full_name || "Anonymous"}</p>
+                  <p className="text-sm sm:text-md text-gray-400 text-center sm:text-left">{user.university || "N/A"}</p>
+                  <p className="text-base sm:text-lg font-semibold text-center sm:text-right">{user.points}</p>
                 </div>
               ))}
             </div>

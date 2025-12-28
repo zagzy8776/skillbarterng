@@ -206,7 +206,7 @@ export default function Dashboard() {
                   <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                     <span className="text-2xl">👋</span>
                   </div>
-                  <div className="h-px bg-white/30 flex-1 hidden lg:block"></div>
+                  <div className="h-px bg-white/30 flex-1 hidden lg:block sm:block"></div>
                 </div>
                 <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 drop-shadow-lg">
                   Welcome back, {user.user_metadata?.full_name || user.email || "Student"}!
@@ -265,13 +265,13 @@ export default function Dashboard() {
                     title={achievement.desc}
                   >
                     <span className="text-lg">{achievement.emoji}</span>
-                    <span className="hidden sm:inline">{achievement.name}</span>
+                    <span className="text-xs sm:inline">{achievement.name}</span>
                   </div>
                 ))}
                 {unlockedAchievements.length > 4 && (
                   <div className="bg-gradient-to-br from-gray-400 to-gray-500 rounded-full px-4 py-2 flex items-center gap-2 text-white font-semibold shadow-lg">
                     <span className="text-lg">🎖️</span>
-                    <span className="hidden sm:inline">+{unlockedAchievements.length - 4} More</span>
+                    <span className="text-xs sm:inline">+{unlockedAchievements.length - 4} More</span>
                   </div>
                 )}
               </div>

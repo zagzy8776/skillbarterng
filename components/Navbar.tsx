@@ -90,42 +90,36 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="hidden md:flex items-center space-x-6">
-          <Link
-            href="#how-it-works"
-            className="relative px-4 py-2 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 group"
-          >
-            How It Works
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
-          </Link>
+        <div className="hidden lg:flex items-center space-x-4">
           <Link
             href="/dashboard"
-            className="relative px-4 py-2 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 group"
+            className="px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
           >
-            Dashboard
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+            📊 Dashboard
           </Link>
           <Link
             href="/jobs"
-            className="relative px-4 py-2 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 group"
+            className="px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
           >
-            Jobs
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+            💼 Jobs
           </Link>
           <Link
             href="/study-groups"
-            className="relative px-4 py-2 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 group"
+            className="px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
           >
-            Study Groups
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+            📚 Study Groups
           </Link>
-
           <Link
             href="/p2p"
-            className="relative px-4 py-2 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 group"
+            className="px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
           >
-            P2P Trading
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+            🔄 P2P
+          </Link>
+          <Link
+            href="/ai-chat"
+            className="px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
+          >
+            🤖 AI
           </Link>
 
           <div className="flex items-center gap-3">

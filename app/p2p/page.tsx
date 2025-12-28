@@ -108,7 +108,7 @@ export default function P2PPage() {
       filtered = filtered.filter(listing => listing.crypto_symbol === cryptoFilter)
     }
 
-    if (activeTab === 'gift-card' && giftCardFilter !== 'all') {
+    if (activeTab === 'gift-cards' && giftCardFilter !== 'all') {
       filtered = filtered.filter(listing => listing.gift_card_type === giftCardFilter)
     }
 
@@ -328,7 +328,7 @@ export default function P2PPage() {
                       </p>
                     </div>
 
-                    {trade.status === 'escrow' && trade.buyer_id === user.id && (
+                    {trade.status === 'escrow' && user && trade.buyer_id === user.id && (
                       <div className="flex gap-2">
                         <button
                           onClick={() => releaseEscrow(trade.id)}
@@ -560,7 +560,7 @@ function CreateListingForm({ activeTab, onListingCreated }: { activeTab: 'crypto
       const { error } = await supabase
         .from('p2p_listings')
         .insert({
-          type: activeTab === 'crypto' ? 'crypto' : 'gift-card',
+          type: activeTab === 'crypto' ? 'crypto' : 'gift-cards',
           trade_type: formData.trade_type,
           asset: asset,
           crypto_symbol: activeTab === 'crypto' ? formData.crypto_symbol : null,

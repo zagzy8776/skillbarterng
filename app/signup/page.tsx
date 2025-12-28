@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/supabaseClient";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 const universities = [
@@ -31,7 +31,7 @@ const universities = [
   "Other (not listed)"
 ];
 
-export default function Signup() {
+function SignupForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -245,5 +245,32 @@ export default function Signup() {
         </div>
       </section>
     </>
+  );
+}
+
+export default function Signup() {
+  return (
+    <Suspense fallback={
+      <>
+        <Navbar />
+        <section className="min-h-screen bg-gradient-to-br from-purple-900 via-pink-800 to-purple-950 flex items-center justify-center px-6">
+          <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl shadow-2xl p-8 max-w-md w-full border border-white border-opacity-20">
+            <div className="text-center">
+              <div className="animate-pulse">
+                <div className="h-8 bg-gray-700 rounded w-64 mx-auto mb-8"></div>
+                <div className="space-y-6">
+                  <div className="h-12 bg-gray-700 rounded"></div>
+                  <div className="h-12 bg-gray-700 rounded"></div>
+                  <div className="h-12 bg-gray-700 rounded"></div>
+                  <div className="h-12 bg-gray-700 rounded"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </>
+    }>
+      <SignupForm />
+    </Suspense>
   );
 }

@@ -6,6 +6,16 @@ import { supabase } from "@/lib/supabaseClient";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { 
+  getUserProgress, 
+  initializeUserProgress, 
+  getUserActivities, 
+  getUserSkillProgress,
+  getXpProgress,
+  UserProgress,
+  UserActivity,
+  SkillProgress 
+} from "@/lib/userProgress";
 
 
 interface User {
@@ -28,6 +38,11 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [showSearch, setShowSearch] = useState(false);
 
+  // Real user data states
+  const [userProgress, setUserProgress] = useState<UserProgress | null>(null);
+  const [userActivities, setUserActivities] = useState<UserActivity[]>([]);
+  const [userSkillProgress, setUserSkillProgress] = useState<SkillProgress[]>([]);
+
   // Advanced Filtering States
   const [locationFilter, setLocationFilter] = useState<string>('all');
   const [skillLevelFilter, setSkillLevelFilter] = useState<string>('all');
@@ -49,6 +64,9 @@ export default function Dashboard() {
         } else {
           setUser(user);
           setUniversity(user.user_metadata?.university || "your school");
+          
+          // Load user progress data
+          await loadUserProgress(user.id);
         }
       } catch (error) {
         console.error("Unexpected error:", error);
@@ -58,6 +76,30 @@ export default function Dashboard() {
     };
     getUser();
   }, [router]);
+
+  const loadUserProgress = async (userId: string) => {
+    try {
+      // Try to get existing progress
+      let progress = await getUserProgress(userId);
+      
+      // If no progress exists, initialize it
+      if (!progress) {
+        progress = await initializeUserProgress(userId);
+      }
+      
+      setUserProgress(progress);
+      
+      // Load user activities and skill progress
+      const activities = await getUserActivities(userId, 10);
+      const skillProgress = await getUserSkillProgress(userId);
+      
+      setUserActivities(activities);
+      setUserSkillProgress(skillProgress);
+      
+    } catch (error) {
+      console.error("Error loading user progress:", error);
+    }
+  };
 
   const popularSkills = [
     { name: "Graphics Design (Canva/Figma)", offer: 68, want: 142 },
@@ -159,15 +201,16 @@ export default function Dashboard() {
   }
 
   const hasSkills = (user.user_metadata?.teach_skills?.length ?? 0) > 0 || (user.user_metadata?.want_skills?.length ?? 0) > 0;
-  const profileCompletion = hasSkills ? 100 : 50; // Simple calculation
-  const totalConnections = 12; // Mock data
-  const activeSwaps = 3; // Mock data
+  const profileCompletion = userProgress?.profile_completion || (hasSkills ? 100 : 50);
+  const totalConnections = userProgress?.total_connections || 12;
+  const activeSwaps = userProgress?.active_swaps || 3;
 
-  // Enhanced Achievement System
-  const userXP = Math.floor(Math.random() * 2500) + 500; // Mock XP (would come from database)
-  const userLevel = Math.floor(userXP / 500) + 1;
-  const xpToNextLevel = (userLevel * 500) - (userXP % 500);
-  const xpProgress = ((userXP % 500) / 500) * 100;
+  // Real XP and Level System
+  const userXP = userProgress?.total_xp || 50;
+  const userLevel = userProgress?.current_level || 1;
+  const xpProgressData = getXpProgress(userXP);
+  const xpToNextLevel = xpProgressData.needed;
+  const xpProgress = xpProgressData.percentage;
 
   // Dynamic achievements based on user data
   const achievements = [

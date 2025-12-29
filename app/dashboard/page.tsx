@@ -251,10 +251,10 @@ export default function Dashboard() {
                   </div>
                   <div className="h-px bg-white/30 flex-1 hidden lg:block sm:block"></div>
                 </div>
-                <h1 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 drop-shadow-lg">
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 drop-shadow-lg">
                   Welcome back, {user.user_metadata?.full_name || user.email || "Student"}!
                 </h1>
-                <p className="text-lg lg:text-xl text-white/90 drop-shadow-md">
+                <p className="text-sm sm:text-base md:text-lg text-white/90 drop-shadow-md">
                   {university !== "your school" ? `${university} Student 🇳🇬` : "Add your university to see school mates"}
                 </p>
                 <div className="flex items-center justify-center lg:justify-start gap-2 mt-4">
@@ -537,15 +537,17 @@ export default function Dashboard() {
                   <div className="flex flex-col md:flex-row gap-4">
                     <input
                       type="text"
+                      inputMode="text"
+                      autoComplete="off"
                       placeholder="Search by name, university, or skill..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="flex-1 px-4 py-3 bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white"
+                      className="flex-1 px-4 py-3 bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-base min-h-[48px] touch-manipulation"
                     />
                     <select
                       value={searchBy}
                       onChange={(e) => setSearchBy(e.target.value as 'name' | 'university' | 'skill')}
-                      className="px-4 py-3 bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white"
+                      className="px-4 py-3 bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white text-base min-h-[48px] touch-manipulation"
                     >
                       <option value="name">Search by Name</option>
                       <option value="university">Search by University</option>
@@ -840,16 +842,16 @@ export default function Dashboard() {
                   <p className="text-gray-900 text-xs sm:text-sm">🎓 <span className="font-semibold text-green-600">{match.teach}</span></p>
                   <p className="text-gray-900 text-xs sm:text-sm">📚 <span className="font-semibold text-pink-600">{match.want}</span></p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-2 sm:space-x-2">
+                <div className="flex flex-col sm:flex-row gap-3 sm:space-x-3">
                   <button
                     onClick={() => sendSwapRequest(match.id)}
-                    className="w-full sm:flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:from-pink-500 hover:via-pink-600 hover:to-pink-700 text-white font-bold rounded-full transition group-hover:from-pink-600 group-hover:via-pink-700 group-hover:to-pink-800 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base"
+                    className="w-full sm:flex-1 px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:from-pink-500 hover:via-pink-600 hover:to-pink-700 text-white font-bold rounded-full transition group-hover:from-pink-600 group-hover:via-pink-700 group-hover:to-pink-800 shadow-lg hover:shadow-xl transform hover:scale-105 text-base sm:text-lg min-h-[48px] touch-manipulation"
                   >
                     Send Request
                   </button>
                   <button
                     onClick={() => router.push(`/profile/${match.id}`)}
-                    className="w-full sm:w-auto px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:from-purple-600 hover:via-purple-700 hover:to-purple-800 text-white font-bold rounded-full transition shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base"
+                    className="w-full sm:w-auto px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:from-purple-600 hover:via-purple-700 hover:to-purple-800 text-white font-bold rounded-full transition shadow-lg hover:shadow-xl transform hover:scale-105 text-base sm:text-lg min-h-[48px] touch-manipulation"
                   >
                     View Profile
                   </button>

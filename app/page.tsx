@@ -163,43 +163,137 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="bg-white rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 transition duration-300 border-t-4 border-purple-500">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 transition duration-300 border-t-4 border-emerald-500 relative"
+            >
+              <div className="absolute -top-3 -right-3 w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-3xl">📝</span>
+              </div>
+              <h3 className="text-xl font-bold text-emerald-600 mb-4">List Your Skills</h3>
+              <p className="text-gray-600 text-sm mb-4">Add skills you can teach and specify what you want to learn. Set your availability and preferences.</p>
+              <div className="space-y-2 text-xs text-gray-500">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+                  <span>Skills I Can Teach</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                  <span>Skills I Want to Learn</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
+                  <span>Set Availability</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 transition duration-300 border-t-4 border-purple-500 relative"
+            >
+              <div className="absolute -top-3 -right-3 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">📝</span>
+                <span className="text-3xl">🔍</span>
               </div>
-              <div className="text-sm font-bold text-purple-600 mb-2">STEP 1</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Sign Up Free</h3>
-              <p className="text-gray-600 text-sm">Create your account in under 2 minutes with just your email. It's completely free!</p>
-            </div>
+              <h3 className="text-xl font-bold text-purple-600 mb-4">Find Perfect Partners</h3>
+              <p className="text-gray-600 text-sm mb-4">Our smart matching connects you with compatible students. Filter by location, skill level, and availability.</p>
+              <div className="space-y-2 text-xs text-gray-500">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+                  <span>Smart Algorithm Matching</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                  <span>University & Location Filter</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
+                  <span>Skill Level Compatibility</span>
+                </div>
+              </div>
+            </motion.div>
 
-            <div className="bg-white rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 transition duration-300 border-t-4 border-pink-500">
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 transition duration-300 border-t-4 border-pink-500 relative"
+            >
+              <div className="absolute -top-3 -right-3 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
               <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">🎯</span>
+                <span className="text-3xl">🤝</span>
               </div>
-              <div className="text-sm font-bold text-pink-600 mb-2">STEP 2</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Set Your Skills</h3>
-              <p className="text-gray-600 text-sm">Tell us what you can teach and what you want to learn. Choose from popular skills or add your own.</p>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 transition duration-300 border-t-4 border-blue-500">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">🔍</span>
+              <h3 className="text-xl font-bold text-pink-600 mb-4">Start Swapping Skills</h3>
+              <p className="text-gray-600 text-sm mb-4">Propose skill exchanges, schedule sessions, and start learning! Track progress and earn achievement points.</p>
+              <div className="space-y-2 text-xs text-gray-500">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+                  <span>Propose Swap Sessions</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                  <span>In-App Messaging</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
+                  <span>Track Progress & Earn Points</span>
+                </div>
               </div>
-              <div className="text-sm font-bold text-blue-600 mb-2">STEP 3</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Find Matches</h3>
-              <p className="text-gray-600 text-sm">Browse potential swap partners from your school or across Nigeria. See who's teaching what you want!</p>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-xl p-8 text-center transform hover:scale-105 transition duration-300 border-t-4 border-green-500">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl">💬</span>
-              </div>
-              <div className="text-sm font-bold text-green-600 mb-2">STEP 4</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Connect & Swap</h3>
-              <p className="text-gray-600 text-sm">Send a swap request, chat, arrange a session, and start learning! Build connections while gaining skills.</p>
-            </div>
+            </motion.div>
           </div>
+          
+          {/* Quick Stats During Process */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-emerald-50 to-purple-50 rounded-2xl p-8 mb-16"
+          >
+            <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">
+              What Happens During Your Skill Swap Journey?
+            </h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">📋</span>
+                </div>
+                <h4 className="font-semibold text-gray-800 mb-2">Profile Setup</h4>
+                <p className="text-sm text-gray-600">Create your learning profile in 2 minutes</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">🎯</span>
+                </div>
+                <h4 className="font-semibold text-gray-800 mb-2">Get Matched</h4>
+                <p className="text-sm text-gray-600">AI finds your perfect skill partners</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">💬</span>
+                </div>
+                <h4 className="font-semibold text-gray-800 mb-2">Connect & Chat</h4>
+                <p className="text-sm text-gray-600">Message safely within our platform</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">🎓</span>
+                </div>
+                <h4 className="font-semibold text-gray-800 mb-2">Learn & Grow</h4>
+                <p className="text-sm text-gray-600">Complete swaps and earn achievements</p>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Additional Features */}
           <div className="bg-white rounded-3xl shadow-2xl p-12">
